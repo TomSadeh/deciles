@@ -30,7 +30,6 @@ def nefesh_btl(nefesh):
 
 def find_nearest(array, value):
     """
-    
 
     Parameters
     ----------
@@ -43,6 +42,10 @@ def find_nearest(array, value):
     -------
     int or float
         Returns the closest value in the array to the value searched, from bottom.
+    
+    Required libraries
+    ------------------
+    numpy
 
     """
     array = np.asarray(array)
@@ -73,6 +76,10 @@ def load_data(file, p, i=None):
     -------
     DataFrame
         The loaded dataframe.
+    
+    Required libraries
+    ------------------
+    pandas
 
     """
     return pd.read_csv(p / (file + ".csv"), index_col=i)

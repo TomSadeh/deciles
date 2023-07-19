@@ -86,9 +86,11 @@ def load_data(file, p, i=None):
 
 path = Path(".")
 data = load_data('limits', path, i='decile')
+data_percent = load_data('percentiles', path, i='percentile')
 
-st.markdown("<h1 style='text-align: center;'>?באיזה עשירון אתם</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>?באיזה עשירון ואחוזון אתם</h1>", unsafe_allow_html=True)
 st.markdown("<div style='text-align: center;'>עשירון תחתון = 1, עשירון עליון = 10</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center;'>אחוזון תחתון = 1, אחוזון עליון = 100</div>", unsafe_allow_html=True)
 st.markdown("<div style='text-align: center;'>:הכניסו את ההכנסות החודשיות נטו של משק הבית שלכם מכלל המקורות</div>", unsafe_allow_html=True)
 income = st.number_input(":הכניסו את ההכנסות החודשיות נטו של משק הבית מכלל המקורות", 
                          min_value=1000, 
@@ -106,9 +108,13 @@ persons = st.number_input("הכנס את מספר הנפשות במשק הבית
 # Caculating income per standard person by dividing the income recived from the user by the number of persons (standardized).
 income_per_s_person = income/nefesh_btl(persons)
 decile = data.index[data['limit'] == find_nearest(data, income_per_s_person)][0]
+percentile = data_percent.index[data_percent['limit'] == find_nearest(data_percent, income_per_s_person)][0]
 
 st.markdown("<h2 style='text-align: center;'>:משק הבית שלך בעשירון</h2>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>{}</h1>".format(decile), unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'>:ובאחוזון</h2>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>{}</h1>".format(percentile), unsafe_allow_html=True)
+
 st.markdown("<div style='text-align: center;'>לפי סקר הוצאות משק הבית 2021 של הלשכה המרכזית לסטטיסטיקה</div>", unsafe_allow_html=True)
 st.markdown("""<a style='display: block; text-align: center;' href="https://twitter.com/tom_sadeh">@tom_sadeh</a>""", unsafe_allow_html=True)
 

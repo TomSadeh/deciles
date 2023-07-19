@@ -47,18 +47,23 @@ data = load_data('limits', path, i='decile')
 
 st.markdown("<h1 style='text-align: center;'>מחשבון עשירונים 2021</h1>", unsafe_allow_html=True)
 
+st.markdown("<div style='text-align: center;'>הכנס את ההכנסות נטו של משק הבית שלך מכלל המקורות</div>", unsafe_allow_html=True)
 income = st.number_input("הכנס את ההכנסות נטו של משק הבית שלך מכלל המקורות", 
                          min_value=1000, 
                          max_value=1000000000,
-                         step=1)
+                         step=1,
+                         label_visibility='collapsed')
+
+st.markdown("<div style='text-align: center;'>הכנס את מספר הנפשות במשק הבית (כולל ילדים)</div>", unsafe_allow_html=True)
 persons = st.number_input("הכנס את מספר הנפשות במשק הבית (כולל ילדים)", 
                           step=1, 
                           min_value=1, 
-                          max_value=20)
+                          max_value=20,
+                          label_visibility='collapsed')
 
 income_per_s_person = income/nefesh_btl(persons)
 decile = data.index[data['limit'] == find_nearest(data, income_per_s_person)][0]
 
 st.markdown("<h2 style='text-align: center;'>:משק הבית שלך בעשירון</h2>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>{}</h1>".format(decile), unsafe_allow_html=True)
-st.markdown("<div style='text-align: center;'>לפי סקר הוצאות משק הבית 2021 של הלשכה המרכזית לסטטיסטיקה</div>".format(decile), unsafe_allow_html=True)
+st.markdown("<div style='text-align: center;'>לפי סקר הוצאות משק הבית 2021 של הלשכה המרכזית לסטטיסטיקה</div>", unsafe_allow_html=True)

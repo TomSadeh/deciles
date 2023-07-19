@@ -51,7 +51,7 @@ st.markdown("<div style='text-align: center;'>:הכניסו את ההכנסות 
 income = st.number_input(":הכניסו את ההכנסות נטו של משק הבית שלך מכלל המקורות", 
                          min_value=1000, 
                          max_value=1000000000,
-                         step=1,
+                         step=100,
                          label_visibility='collapsed')
 
 st.markdown("<div style='text-align: center;'>:הכנס את מספר הנפשות במשק הבית (כולל ילדים)</div>", unsafe_allow_html=True)

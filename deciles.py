@@ -34,7 +34,7 @@ def find_nearest(array, value):
     array = np.asarray(array)
     if value < array[0]:
         return array[0][0]
-    elif value > array[-1]:
+    elif value >= array[-1]:
         return array[-1][0]
     array = array[array > value]
     idx = (np.abs(array - value)).argmin()

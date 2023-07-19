@@ -54,7 +54,7 @@ income = st.number_input(":הכניסו את ההכנסות נטו של משק �
                          step=1,
                          label_visibility='collapsed')
 
-st.markdown("<div style='text-align: center;'>הכנס את מספר הנפשות במשק הבית (כולל ילדים)</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center;'>:הכנס את מספר הנפשות במשק הבית (כולל ילדים)</div>", unsafe_allow_html=True)
 persons = st.number_input("הכנס את מספר הנפשות במשק הבית (כולל ילדים)", 
                           step=1, 
                           min_value=1, 

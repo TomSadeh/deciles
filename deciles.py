@@ -29,6 +29,22 @@ def nefesh_btl(nefesh):
 
 
 def find_nearest(array, value):
+    """
+    
+
+    Parameters
+    ----------
+    array : numpy array
+        The array to be searched.
+    value : flaot or int
+        A number which get searched in the array.
+
+    Returns
+    -------
+    int or float
+        Returns the closest value in the array to the value searched, from bottom.
+
+    """
     array = np.asarray(array)
     if value < array[0]:
         return array[0][0]
@@ -40,6 +56,25 @@ def find_nearest(array, value):
 
 @st.cache_data
 def load_data(file, p, i=None):
+    """
+    A function to load the data.
+    Mainly for streamlit.cache_data.
+
+    Parameters
+    ----------
+    file : str
+        The file name to of the file load
+    p : Path object
+        The path to the file.
+    i : str, optional
+        The column to read as an index of the dataframe. The default is None.
+
+    Returns
+    -------
+    DataFrame
+        The loaded dataframe.
+
+    """
     return pd.read_csv(p / (file + ".csv"), index_col=i)
 
 path = Path(".")
@@ -61,6 +96,7 @@ persons = st.number_input("הכנס את מספר הנפשות במשק הבית
                           max_value=20,
                           label_visibility='collapsed')
 
+# Caculating income per standard person by dividing the income recived from the user by the number of persons (standardized).
 income_per_s_person = income/nefesh_btl(persons)
 decile = data.index[data['limit'] == find_nearest(data, income_per_s_person)][0]
 

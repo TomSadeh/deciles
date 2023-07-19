@@ -67,5 +67,3 @@ decile = data.index[data['limit'] == find_nearest(data, income_per_s_person)][0]
 st.markdown("<h2 style='text-align: center;'>:משק הבית שלך בעשירון</h2>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>{}</h1>".format(decile), unsafe_allow_html=True)
 st.markdown("<div style='text-align: center;'>לפי סקר הוצאות משק הבית 2021 של הלשכה המרכזית לסטטיסטיקה</div>", unsafe_allow_html=True)
-
-st.markdown("###### [![this is an image link](https://png.pngtree.com/element_our/sm/20180626/sm_5b32227ca3eb9.jpg)](https://twitter.com/tom_sadeh)")

@@ -49,7 +49,7 @@ data = load_data('limits', path, i='decile')
 
 st.markdown("<h1 style='text-align: center;'>מחשבון עשירונים</h1>", unsafe_allow_html=True)
 
-st.markdown("<div style='text-align: center;'>:הכניסו את ההכנסות נטו של משק הבית שלך מכלל המקורות</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center;'>:הכניסו את ההכנסות נטו של משק הבית שלכם מכלל המקורות</div>", unsafe_allow_html=True)
 income = st.number_input(":הכניסו את ההכנסות נטו של משק הבית מכלל המקורות", 
                          min_value=1000, 
                          max_value=1000000000,

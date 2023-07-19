@@ -1,8 +1,6 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
-import matplotlib as mpl
-import matplotlib.pyplot as plt
 from pathlib import Path
 
 def nefesh_btl(nefesh):
@@ -70,3 +68,4 @@ st.markdown("<h2 style='text-align: center;'>:משק הבית שלך בעשיר�
 st.markdown("<h1 style='text-align: center;'>{}</h1>".format(decile), unsafe_allow_html=True)
 st.markdown("<div style='text-align: center;'>לפי סקר הוצאות משק הבית 2021 של הלשכה המרכזית לסטטיסטיקה</div>", unsafe_allow_html=True)
 st.markdown("""<a style='display: block; text-align: center;' href="https://twitter.com/tom_sadeh">@tom_sadeh</a>""", unsafe_allow_html=True)
+

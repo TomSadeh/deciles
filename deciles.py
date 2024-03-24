@@ -108,6 +108,7 @@ persons = st.number_input("הכנס את מספר הנפשות במשק הבית
 income_per_s_person = income/nefesh_btl(persons)
 decile = data.index[data['limit'] == find_nearest(data, income_per_s_person)][0]
 percentile = data_percent.index[data_percent['limit'] == find_nearest(data_percent, income_per_s_person)][0]
+st.markdown("<style> div.row-widget.stNumberInput > div {direction:rtl; text-align:right !important;} </style>", unsafe_allow_html=True)
 
 st.markdown("<h2 style='text-align: center;'>:משק הבית שלך בעשירון</h2>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>{}</h1>".format(decile), unsafe_allow_html=True)

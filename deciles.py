@@ -87,23 +87,30 @@ def load_data(file, p, i=None):
 path = Path(".")
 data = load_data('limits', path, i='decile')
 data_percent = load_data('percentiles', path, i='percentile')
-st.markdown("<style> div.row-widget.stNumberInput > div {direction:rtl; text-align:right !important;} </style>", unsafe_allow_html=True)
-
 st.markdown("<h1 style='text-align: center;'>?באיזה עשירון ואחוזון אתם</h1>", unsafe_allow_html=True)
 
 st.markdown("<div style='text-align: center;'>:הכניסו את ההכנסות החודשיות נטו של משק הבית שלכם מכלל המקורות</div>", unsafe_allow_html=True)
-income = st.number_input(":הכניסו את ההכנסות החודשיות נטו של משק הבית מכלל המקורות", 
-                         min_value=1000, 
-                         max_value=1000000000,
-                         step=100,
-                         label_visibility='collapsed')
+st.markdown("""<style> 
+                input {
+                 direction:rtl; 
+                 text-align:center !important;
+                 } 
+                </style>""", unsafe_allow_html=True)
 
-st.markdown("<div style='text-align: center;'>:הכניסו את מספר הנפשות במשק הבית (כולל ילדים)</div>", unsafe_allow_html=True)
-persons = st.number_input("הכנס את מספר הנפשות במשק הבית (כולל ילדים)", 
-                          step=1, 
-                          min_value=1, 
-                          max_value=20,
-                          label_visibility='collapsed')
+col1, = st.columns(1)
+with col1:
+    income = st.number_input(":הכניסו את ההכנסות החודשיות נטו של משק הבית מכלל המקורות", 
+                             min_value=1000, 
+                             max_value=1000000000,
+                             step=100,
+                             label_visibility='collapsed')
+    
+    st.markdown("<div style='text-align: center;'>:הכניסו את מספר הנפשות במשק הבית (כולל ילדים)</div>", unsafe_allow_html=True)
+    persons = st.number_input("הכנס את מספר הנפשות במשק הבית (כולל ילדים)", 
+                              step=1, 
+                              min_value=1, 
+                              max_value=20,
+                              label_visibility='collapsed')
 
 # Caculating income per standard person by dividing the income recived from the user by the number of persons (standardized).
 income_per_s_person = income/nefesh_btl(persons)

@@ -153,7 +153,7 @@ with col3:
     st.markdown("<h2 style='text-align: center;'>ובאחוזון של המגזר שלך</h2>", unsafe_allow_html=True)
     st.markdown("<h1 style='text-align: center;'>{}</h1>".format(percentile_m), unsafe_allow_html=True)
 
-st.markdown("<div style='text-align: center;'>לפי סקר הוצאות משק הבית 2021 של הלשכה המרכזית לסטטיסטיקה</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center;'>לפי סקר הוצאות משק הבית 2022 של הלשכה המרכזית לסטטיסטיקה</div>", unsafe_allow_html=True)
 st.markdown("<div style='text-align: center;'>עשירון תחתון = 1, עשירון עליון = 10</div>", unsafe_allow_html=True)
 st.markdown("<div style='text-align: center;'>אחוזון תחתון = 1, אחוזון עליון = 100</div>", unsafe_allow_html=True)
 st.markdown("""<a style='display: block; text-align: center;' href="https://twitter.com/tom_sadeh">@tom_sadeh</a>""", unsafe_allow_html=True)

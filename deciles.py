@@ -85,8 +85,12 @@ def load_data(file, p, i=None):
     return pd.read_csv(p / (file + ".csv"), index_col=i)
 
 path = Path(".")
-data = load_data('limits', path, i='decile')
-data_percent = load_data('percentiles', path, i='percentile')
+data = load_data('decile_limits', path, i='decile')
+data_percent = load_data('percentiles_limits', path, i='percentile')
+migzar_option_dict = {'non_haredim': 'יהודים לא-חרדים',
+                      'haredim': 'יהודים חרדים',
+                      'arabs': 'ערבים'}
+
 st.markdown("<h1 style='text-align: center;'>?באיזה עשירון ואחוזון אתם</h1>", unsafe_allow_html=True)
 
 st.markdown("<div style='text-align: center;'>:הכניסו את ההכנסות החודשיות נטו של משק הבית שלכם מכלל המקורות</div>", unsafe_allow_html=True)
@@ -112,14 +116,24 @@ with col1:
                               max_value=20,
                               label_visibility='collapsed')
 
+    st.markdown("<div style='text-align: center;'>?מאיזה מגזר אתם</div>", unsafe_allow_html=True)
+    st.radio(options=migzar_option_dict.keys(),
+             key='decile_radio',
+             label_visibility='collapsed',
+             format_func=lambda x: '{}'.format(migzar_option_dict.get(x)))
+    
 # Caculating income per standard person by dividing the income recived from the user by the number of persons (standardized).
 income_per_s_person = income/nefesh_btl(persons)
-decile = data.index[data['limit'] == find_nearest(data, income_per_s_person)][0]
-percentile = data_percent.index[data_percent['limit'] == find_nearest(data_percent, income_per_s_person)][0]
+decile = data.index[data['all'] == find_nearest(data, income_per_s_person)][0]
+percentile = data_percent.index[data_percent['all'] == find_nearest(data_percent, income_per_s_person)][0]
 
-st.markdown("<h2 style='text-align: center;'>:משק הבית שלך בעשירון</h2>", unsafe_allow_html=True)
+decile_m = data.index[data['all'] == find_nearest(data, income_per_s_person)][0]
+percentile_m = data_percent.index[data_percent['all'] == find_nearest(data_percent, income_per_s_person)][0]
+
+
+st.markdown("<h2 style='text-align: center;'>:משק הבית שלך בעשירון הכללי</h2>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>{}</h1>".format(decile), unsafe_allow_html=True)
-st.markdown("<h2 style='text-align: center;'>:ובאחוזון</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'>:ובאחוזון הכללי</h2>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>{}</h1>".format(percentile), unsafe_allow_html=True)
 
 st.markdown("<div style='text-align: center;'>לפי סקר הוצאות משק הבית 2021 של הלשכה המרכזית לסטטיסטיקה</div>", unsafe_allow_html=True)

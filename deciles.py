@@ -87,8 +87,8 @@ def load_data(file, p, i=None):
 path = Path(".")
 data = load_data('deciles_limits', path, i='p')
 data_percent = load_data('percentiles_limits', path, i='p')
-migzar_option_dict = {'non_haredi': 'יהודים לא-חרדי',
-                      'haredim': 'יהודים חרדי',
+migzar_option_dict = {'non_haredi': 'יהודי לא-חרדי',
+                      'haredi': 'יהודי חרדי',
                       'arab': 'ערבי'}
 
 st.markdown("""<style> 

@@ -85,7 +85,7 @@ def load_data(file, p, i=None):
     return pd.read_csv(p / (file + ".csv"), index_col=i)
 
 path = Path(".")
-data = load_data('decile_limits', path, i='decile')
+data = load_data('deciles_limits', path, i='decile')
 data_percent = load_data('percentiles_limits', path, i='percentile')
 migzar_option_dict = {'non_haredim': 'יהודים לא-חרדים',
                       'haredim': 'יהודים חרדים',

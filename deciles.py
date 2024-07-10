@@ -94,7 +94,7 @@ migzar_option_dict = {'non_haredi': 'יהודים לא-חרדי',
 st.markdown("""<style> 
                 div.row-widget.stRadio > div {
                  direction:rtl; 
-                 text-align:right !important;
+                 text-align:center !important;
                  } 
                 </style>""", unsafe_allow_html=True)
                 

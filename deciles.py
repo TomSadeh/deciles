@@ -137,16 +137,18 @@ percentile = data_percent.index[data_percent['all'] == find_nearest(data_percent
 
 decile_m = data.index[data[migzar] == find_nearest(data[migzar], income_per_s_person)][0]
 percentile_m = data_percent.index[data_percent[migzar] == find_nearest(data_percent[migzar], income_per_s_person)][0]
+col2, col3 = st.columns(2)
+with col2:
+    st.markdown("<h2 style='text-align: center;'>:משק הבית שלך בעשירון הכללי</h2>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>{}</h1>".format(decile), unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center;'>:ובאחוזון הכללי</h2>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>{}</h1>".format(percentile), unsafe_allow_html=True)
 
-st.markdown("<h2 style='text-align: center;'>:משק הבית שלך בעשירון הכללי</h2>", unsafe_allow_html=True)
-st.markdown("<h1 style='text-align: center;'>{}</h1>".format(decile), unsafe_allow_html=True)
-st.markdown("<h2 style='text-align: center;'>:ובאחוזון הכללי</h2>", unsafe_allow_html=True)
-st.markdown("<h1 style='text-align: center;'>{}</h1>".format(percentile), unsafe_allow_html=True)
-
-st.markdown("<h2 style='text-align: center;'>:משק הבית שלך בעשירון של המגזר שלך</h2>", unsafe_allow_html=True)
-st.markdown("<h1 style='text-align: center;'>{}</h1>".format(decile_m), unsafe_allow_html=True)
-st.markdown("<h2 style='text-align: center;'>:ובאחוזון של המגזר שלך</h2>", unsafe_allow_html=True)
-st.markdown("<h1 style='text-align: center;'>{}</h1>".format(percentile_m), unsafe_allow_html=True)
+with col3:
+    st.markdown("<h2 style='text-align: center;'>:משק הבית שלך בעשירון של המגזר שלך</h2>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>{}</h1>".format(decile_m), unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center;'>:ובאחוזון של המגזר שלך</h2>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>{}</h1>".format(percentile_m), unsafe_allow_html=True)
 
 st.markdown("<div style='text-align: center;'>לפי סקר הוצאות משק הבית 2021 של הלשכה המרכזית לסטטיסטיקה</div>", unsafe_allow_html=True)
 st.markdown("<div style='text-align: center;'>עשירון תחתון = 1, עשירון עליון = 10</div>", unsafe_allow_html=True)

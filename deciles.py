@@ -50,9 +50,9 @@ def find_nearest(array, value):
     """
     array = np.asarray(array)
     if value < array[0]:
-        return array[0][0]
+        return array[0]
     elif value >= array[-1]:
-        return array[-1][0]
+        return array[-1]
     array = array[array > value]
     idx = (np.abs(array - value)).argmin()
     return array[idx]
@@ -87,7 +87,7 @@ def load_data(file, p, i=None):
 path = Path(".")
 data = load_data('deciles_limits', path, i='p')
 data_percent = load_data('percentiles_limits', path, i='p')
-migzar_option_dict = {'non_haredim': 'יהודים לא-חרדים',
+migzar_option_dict = {'non_haredi': 'יהודים לא-חרדים',
                       'haredim': 'יהודים חרדים',
                       'arabs': 'ערבים'}
 
@@ -137,7 +137,6 @@ percentile = data_percent.index[data_percent['all'] == find_nearest(data_percent
 
 decile_m = data.index[data[migzar] == find_nearest(data[migzar], income_per_s_person)][0]
 percentile_m = data_percent.index[data_percent[migzar] == find_nearest(data_percent[migzar], income_per_s_person)][0]
-
 
 st.markdown("<h2 style='text-align: center;'>:משק הבית שלך בעשירון הכללי</h2>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>{}</h1>".format(decile), unsafe_allow_html=True)

@@ -117,7 +117,7 @@ with col1:
                               label_visibility='collapsed')
 
     st.markdown("<div style='text-align: center;'>?מאיזה מגזר אתם</div>", unsafe_allow_html=True)
-    st.radio(options=migzar_option_dict.keys(),
+    migzar = st.radio(options=migzar_option_dict.keys(),
              key='decile_radio',
              label_visibility='collapsed',
              format_func=lambda x: '{}'.format(migzar_option_dict.get(x)))
@@ -127,14 +127,19 @@ income_per_s_person = income/nefesh_btl(persons)
 decile = data.index[data['all'] == find_nearest(data, income_per_s_person)][0]
 percentile = data_percent.index[data_percent['all'] == find_nearest(data_percent, income_per_s_person)][0]
 
-decile_m = data.index[data['all'] == find_nearest(data, income_per_s_person)][0]
-percentile_m = data_percent.index[data_percent['all'] == find_nearest(data_percent, income_per_s_person)][0]
+decile_m = data.index[data[migzar] == find_nearest(data, income_per_s_person)][0]
+percentile_m = data_percent.index[data_percent[migzar] == find_nearest(data_percent, income_per_s_person)][0]
 
 
 st.markdown("<h2 style='text-align: center;'>:משק הבית שלך בעשירון הכללי</h2>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>{}</h1>".format(decile), unsafe_allow_html=True)
 st.markdown("<h2 style='text-align: center;'>:ובאחוזון הכללי</h2>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>{}</h1>".format(percentile), unsafe_allow_html=True)
+
+st.markdown("<h2 style='text-align: center;'>:משק הבית שלך בעשירון של המגזר שלך</h2>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>{}</h1>".format(decile_m), unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'>:ובאחוזון של המגזר שלך</h2>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>{}</h1>".format(percentile_m), unsafe_allow_html=True)
 
 st.markdown("<div style='text-align: center;'>לפי סקר הוצאות משק הבית 2021 של הלשכה המרכזית לסטטיסטיקה</div>", unsafe_allow_html=True)
 st.markdown("<div style='text-align: center;'>עשירון תחתון = 1, עשירון עליון = 10</div>", unsafe_allow_html=True)

@@ -117,10 +117,11 @@ with col1:
                               label_visibility='collapsed')
 
     st.markdown("<div style='text-align: center;'>?מאיזה מגזר אתם</div>", unsafe_allow_html=True)
-    migzar = st.radio(options=migzar_option_dict.keys(),
-             key='decile_radio',
-             label_visibility='collapsed',
-             format_func=lambda x: '{}'.format(migzar_option_dict.get(x)))
+    migzar = st.radio(label='מגזר',
+                      options=migzar_option_dict.keys(),
+                      key='decile_radio',
+                      label_visibility='collapsed',
+                      format_func=lambda x: '{}'.format(migzar_option_dict.get(x)))
     
 # Caculating income per standard person by dividing the income recived from the user by the number of persons (standardized).
 income_per_s_person = income/nefesh_btl(persons)

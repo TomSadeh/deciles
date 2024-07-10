@@ -89,7 +89,7 @@ data = load_data('deciles_limits', path, i='p')
 data_percent = load_data('percentiles_limits', path, i='p')
 migzar_option_dict = {'non_haredi': 'יהודים לא-חרדים',
                       'haredim': 'יהודים חרדים',
-                      'arabs': 'ערבים'}
+                      'arab': 'ערבים'}
 
 st.markdown("""<style> 
                 div.row-widget.stRadio > div {

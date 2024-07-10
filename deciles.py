@@ -92,11 +92,14 @@ migzar_option_dict = {'non_haredi': 'יהודים לא-חרדי',
                       'arab': 'ערבי'}
 
 st.markdown("""<style> 
-                div.row-widget.stRadio > div {
-                 direction:rtl; 
-                 text-align:center !important;
-                 } 
-                </style>""", unsafe_allow_html=True)
+                div.row-widget.stSelectbox > div {
+                    direction:rtl;
+                    text_align:right !important;
+                    } </style>""", unsafe_allow_html=True)
+st.markdown("""<style>
+                li {
+                    text-align:right;
+                } </style>""", unsafe_allow_html=True)
                 
 st.markdown("<h1 style='text-align: center;'>?באיזה עשירון ואחוזון אתם</h1>", unsafe_allow_html=True)
 
@@ -124,7 +127,7 @@ with col1:
                               label_visibility='collapsed')
 
     st.markdown("<div style='text-align: center;'>?מאיזה מגזר אתם</div>", unsafe_allow_html=True)
-    migzar = st.radio(label='מגזר',
+    migzar = st.selectbox(label='מגזר',
                       options=migzar_option_dict.keys(),
                       key='decile_radio',
                       label_visibility='collapsed',
